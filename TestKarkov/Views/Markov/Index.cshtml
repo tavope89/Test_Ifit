@@ -1,0 +1,47 @@
+﻿@model List<string>
+@{
+    ViewBag.Title = "Markov";
+    var index = 0;
+}
+
+<div class="form-horizontal">
+    <h4>Markov Algorithm</h4>
+    <hr />
+    <div class="form-group">
+        @Html.Label("lblSearchedWord", "To see the result of the Markov Algorithm press the button", new { @class = "col-md-5 control-label" })
+        <div class="col-md-4">
+            @Html.ActionLink("Apply Markov", "ResultMarkov", "Markov", new { @class = "btn btn-default" })
+        </div>
+        
+    </div>
+    <hr />
+
+    <div class="table-responsive">
+        <table class="table" id="TableMarkov">
+
+            <tr>
+                <th>
+                    @Html.Label("Index_String_Symbol", "Index")
+                </th>
+                <th>
+                    @Html.Label("String_Symbol", "String Symbol")
+                </th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.Label("Index_String_Symbol_Value", index.ToString())
+                    </td>
+                    <td>
+                        @Html.Label("String_Symbol_Value", item.ToString())
+                    </td>
+
+                </tr>
+                index++;
+            }
+
+        </table>
+    </div>
+</div>
+
